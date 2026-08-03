@@ -1,0 +1,300 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffdce8,#ffeef7,#fff7fb);
+    overflow-x:hidden;
+    min-height:100vh;
+    color:#444;
+}
+
+.hidden{
+    display:none;
+}
+
+/* Loading Screen */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ff7ca8,#ffc4d9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    animation:fadeOut 3s forwards;
+}
+
+#loader h1{
+    color:white;
+    font-size:2rem;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+}
+
+@keyframes fadeOut{
+
+0%,85%{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+100%{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+}
+
+/* Sections */
+
+section{
+
+width:100%;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+}
+
+/* Glass Card */
+
+.glass,.card{
+
+width:90%;
+
+max-width:650px;
+
+padding:40px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.35);
+
+backdrop-filter:blur(18px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+text-align:center;
+
+}
+
+/* Headings */
+
+h1{
+
+color:#ff4f8b;
+
+margin-bottom:15px;
+
+}
+
+h2{
+
+color:#ff4f8b;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+/* Buttons */
+
+button{
+
+padding:14px 32px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4f8b;
+
+color:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+margin-top:20px;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+background:#ff2e72;
+
+}
+
+/* Typewriter */
+
+#typing{
+
+min-height:250px;
+
+font-size:20px;
+
+line-height:2;
+
+white-space:pre-line;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.glass,.card{
+
+padding:25px;
+
+}
+
+h1{
+
+font-size:28px;
+
+}
+
+p{
+
+font-size:17px;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+}
+
+/* Floating Hearts */
+
+.heart{
+
+position:fixed;
+
+pointer-events:none;
+
+animation:heartFloat 4s linear forwards;
+
+z-index:999;
+
+}
+
+@keyframes heartFloat{
+
+from{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
+
+/* Confetti */
+
+.confetti{
+
+position:fixed;
+
+width:10px;
+
+height:18px;
+
+top:-30px;
+
+animation:fall linear forwards;
+
+z-index:999;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh) rotate(720deg);
+
+}
+
+}
+.sparkle{
+    position:fixed;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+    pointer-events:none;
+    animation:sparkle 1s linear forwards;
+    box-shadow:0 0 12px #ff4f8b;
+}
+
+@keyframes sparkle{
+    from{
+        transform:scale(1);
+        opacity:1;
+    }
+    to{
+        transform:scale(0);
+        opacity:0;
+        translate:0 -30px;
+    }
+}
+#musicBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:9999;
+    border-radius:50px;
+    padding:12px 20px;
+}
