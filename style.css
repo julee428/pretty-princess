@@ -298,3 +298,18 @@ transform:translateY(110vh) rotate(720deg);
     border-radius:50px;
     padding:12px 20px;
 }
+.answer-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+#yesBtn,#noBtn{
+    min-width:120px;
+}
+
+#noBtn{
+    position:relative;
+}
