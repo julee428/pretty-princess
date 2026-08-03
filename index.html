@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretty Princess</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <h1>Preparing something special... ❤️</h1>
+    </div>
+
+    <!-- Welcome -->
+    <section id="welcome">
+        <div class="glass">
+            <h1>Hey, Pretty Princess 👑</h1>
+
+            <p>
+                Before you decide to stay mad...
+                <br><br>
+                Please give me just 2 minutes.
+                <br><br>
+                🥺
+            </p>
+
+            <button id="startBtn">
+                Open My Heart ❤️
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Letter -->
+    <section id="letter" class="hidden">
+
+        <div class="card">
+
+            <h2>💌 Dear Pretty Princess 👑</h2>
+
+            <p style="
+            font-family:'Caveat',cursive;
+            font-size:34px;
+            color:#ff4f8b;
+            margin-bottom:20px;
+            transform:rotate(-2deg);
+            ">
+                Please don't stay mad. 🤍
+            </p>
+
+            <p id="typing"></p>
+
+            <button id="nextBtn">
+                Continue ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Reasons -->
+    <section id="reasons" class="hidden">
+
+        <div class="card">
+
+            <h2>Why You're So Special 🌸</h2>
+
+            <p id="reasonText">
+                Click below ❤️
+            </p>
+
+            <button id="reasonBtn">
+                Next Reason ❤️
+            </button>
+
+            <br><br>
+
+            <button id="forgiveBtn">
+                Will You Forgive Me? 🥺
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Final -->
+    <section id="final" class="hidden">
+
+        <div class="card">
+
+            <h1>Thank You... 🤍</h1>
+
+            <p>
+
+                Thank you...
+
+                <br><br>
+
+                For staying.
+
+                <br>
+
+                For listening.
+
+                <br>
+
+                For being patient with me.
+
+                <br><br>
+
+                I know I can be annoying sometimes...
+
+                <br><br>
+
+                But I never want to be the reason you lose your smile.
+
+                <br><br>
+
+                Please don't stay mad.
+
+                <br><br>
+
+                Because seeing you happy
+
+                <br>
+
+                is my favorite thing.
+
+                🤍
+
+            </p>
+
+            <p style="
+            font-family:'Caveat',cursive;
+            font-size:34px;
+            color:#ff4f8b;
+            margin-top:25px;
+            ">
+
+                One last thing...
+
+                <br><br>
+
+                No matter how many silly fights we have...
+
+                <br><br>
+
+                You'll always be my
+
+                <br>
+
+                <strong>Pretty Princess 👑</strong>
+
+            </p>
+
+            <h2>
+
+                Now stop being mad...
+
+                <br><br>
+
+                and smile for me,
+
+                <br>
+
+                Pretty Princess. 👑
+
+            </h2>
+
+        </div>
+
+    </section>
+
+    <!-- Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Button -->
+    <button id="musicBtn" type="button">
+        🎵 Pause Music
+    </button>
+
+    <!-- Surprise Button -->
+    <button type="button"
+        onclick="alert('YAYYY!! ❤️\n\nI knew my Pretty Princess couldn\'t stay mad forever. 🤍')">
+
+        Click Me 👑
+
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
