@@ -3,14 +3,10 @@
 // ==========================
 
 window.onload = () => {
-
     setTimeout(() => {
-
         document.getElementById("loader").style.display = "none";
-
-    },3000);
-
-}
+    }, 3000);
+};
 
 // ==========================
 // ELEMENTS
@@ -19,7 +15,9 @@ window.onload = () => {
 const startBtn = document.getElementById("startBtn");
 const nextBtn = document.getElementById("nextBtn");
 const reasonBtn = document.getElementById("reasonBtn");
-const forgiveBtn = document.getElementById("forgiveBtn");
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
 
 const welcome = document.getElementById("welcome");
 const letter = document.getElementById("letter");
@@ -27,24 +25,21 @@ const reasons = document.getElementById("reasons");
 const finalPage = document.getElementById("final");
 
 const typing = document.getElementById("typing");
-
 const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
 
 // ==========================
 // OPEN LETTER
 // ==========================
 
 startBtn.onclick = () => {
+    welcome.classList.add("hidden");
+    letter.classList.remove("hidden");
 
-welcome.classList.add("hidden");
+    music.play().catch(() => {});
 
-letter.classList.remove("hidden");
-
-music.play().catch(()=>{});
-
-typeLetter();
-
-}
+    typeLetter();
+};
 
 // ==========================
 // TYPEWRITER
@@ -68,45 +63,30 @@ Can we start again? ❤️`;
 
 let i = 0;
 
-function typeLetter(){
+function typeLetter() {
+    typing.innerHTML = "";
+    i = 0;
 
-typing.innerHTML="";
+    function type() {
+        if (i < message.length) {
+            typing.innerHTML += message.charAt(i);
+            i++;
+            setTimeout(type, 45);
+        }
+    }
 
-i=0;
-
-let speed=45;
-
-function type(){
-
-if(i < message.length){
-
-typing.innerHTML += message.charAt(i);
-
-i++;
-
-setTimeout(type,speed);
-
-}
-
-}
-
-type();
-
+    type();
 }
 
 // ==========================
 // NEXT
 // ==========================
 
-nextBtn.onclick = ()=>{
-
-letter.classList.add("hidden");
-
-reasons.classList.remove("hidden");
-
-showReason();
-
-}
+nextBtn.onclick = () => {
+    letter.classList.add("hidden");
+    reasons.classList.remove("hidden");
+    showReason();
+};
 
 // ==========================
 // REASONS
@@ -114,60 +94,54 @@ showReason();
 
 const reasonText = document.getElementById("reasonText");
 
-const reasonList=[
-
-"❤️ Your smile makes everything better.",
-
-"🌸 You always make my day brighter.",
-
-"🥹 Your little reactions are adorable.",
-
-"✨ Because you are my safe place.",
-
-"🤍 Because you're my favorite person.",
-
-"👑 Because you'll always be my Pretty Princess."
-
+const reasonList = [
+    "❤️ Your smile makes everything better.",
+    "🌸 You always make my day brighter.",
+    "🥹 Your little reactions are adorable.",
+    "✨ Because you are my safe place.",
+    "🤍 Because you're my favorite person.",
+    "👑 Because you'll always be my Pretty Princess."
 ];
 
-let r=0;
+let r = 0;
 
-function showReason(){
-
-reasonText.innerHTML=reasonList[r];
-
+function showReason() {
+    reasonText.innerHTML = reasonList[r];
 }
 
-reasonBtn.onclick=()=>{
-
-r++;
-
-if(r>=reasonList.length){
-
-r=0;
-
-}
-
-showReason();
-
-}
+reasonBtn.onclick = () => {
+    r++;
+    if (r >= reasonList.length) r = 0;
+    showReason();
+};
 
 // ==========================
-// FORGIVE
+// YES BUTTON
 // ==========================
 
-forgiveBtn.onclick=()=>{
-
-reasons.classList.add("hidden");
-
-finalPage.classList.remove("hidden");
-
-createHearts();
-
-}
+yesBtn.onclick = () => {
+    reasons.classList.add("hidden");
+    finalPage.classList.remove("hidden");
+    createHearts();
+};
 
 // ==========================
-// FLOATING HEARTS
+// RUNNING NO BUTTON
+// ==========================
+
+noBtn.addEventListener("mouseenter", () => {
+
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+
+});
+
+// ==========================
+// HEARTS
 // ==========================
 
 function createHearts() {
@@ -177,12 +151,10 @@ function createHearts() {
         const heart = document.createElement("div");
 
         heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💖";
-
         heart.className = "heart";
 
         heart.style.left = Math.random() * window.innerWidth + "px";
         heart.style.top = window.innerHeight + "px";
-
         heart.style.fontSize = (20 + Math.random() * 20) + "px";
 
         document.body.appendChild(heart);
@@ -192,7 +164,6 @@ function createHearts() {
         const move = setInterval(() => {
 
             pos -= 3;
-
             heart.style.top = pos + "px";
 
             if (pos < -100) {
@@ -201,7 +172,6 @@ function createHearts() {
             }
 
         }, 20);
-
     }
 
     confetti();
@@ -230,42 +200,47 @@ function confetti() {
         document.body.appendChild(piece);
 
         setTimeout(() => piece.remove(), 4000);
-
     }
-
 }
-document.addEventListener("mousemove",(e)=>{
 
-    const s=document.createElement("div");
+// ==========================
+// SPARKLES
+// ==========================
 
-    s.className="sparkle";
+document.addEventListener("mousemove", (e) => {
 
-    s.style.left=e.clientX+"px";
-    s.style.top=e.clientY+"px";
+    const s = document.createElement("div");
+
+    s.className = "sparkle";
+
+    s.style.left = e.clientX + "px";
+    s.style.top = e.clientY + "px";
 
     document.body.appendChild(s);
 
-    setTimeout(()=>{
+    setTimeout(() => {
         s.remove();
-    },1000);
+    }, 1000);
 
 });
-const musicBtn=document.getElementById("musicBtn");
 
-musicBtn.onclick=()=>{
+// ==========================
+// MUSIC BUTTON
+// ==========================
 
-    if(music.paused){
+musicBtn.onclick = () => {
+
+    if (music.paused) {
 
         music.play();
 
-        musicBtn.innerHTML="🎵 Pause Music";
+        musicBtn.innerHTML = "🎵 Pause Music";
 
-    }else{
+    } else {
 
         music.pause();
 
-        musicBtn.innerHTML="▶️ Play Music";
-
+        musicBtn.innerHTML = "▶️ Play Music";
     }
 
 };
